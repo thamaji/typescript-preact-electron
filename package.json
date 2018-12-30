@@ -1,0 +1,27 @@
+{
+  "name": "typescript-preact-electron",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dst/index.js",
+  "environments": {
+    "platform": "linux darwin"
+  },
+  "scripts": {
+    "build": "webpack --display-error-details && cp src/*.html src/package.json dst/",
+    "run": "npm run build && electron dst/",
+    "package": "npm run build && for platform in ${npm_package_environments_platform}; do electron-packager dst/ ${npm_package_name} --out build/ --platform=${platform} --arch=x64 --overwrite; done"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^4.0.0",
+    "electron-packager": "^13.0.1",
+    "ts-loader": "^5.3.2",
+    "typescript": "^3.2.2",
+    "webpack": "^4.28.3",
+    "webpack-cli": "^3.1.2"
+  },
+  "dependencies": {
+    "preact": "^8.4.2"
+  }
+}
