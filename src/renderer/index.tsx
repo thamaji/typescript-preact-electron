@@ -31,7 +31,7 @@ class Clock extends Component<ClockProps, ClockState> {
 	}
 
 	render(props: ClockProps, state: ClockState) {
-		let time = new Date(state.time).toLocaleTimeString();
+		const time = new Date(state.time).toLocaleTimeString();
 		return <span>{ time }</span>;
 	}
 }
