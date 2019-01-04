@@ -8,7 +8,7 @@ interface ClockState {
 }
 
 class Clock extends Component<ClockProps, ClockState> {
-	timer: any;
+	private timer: NodeJS.Timer | null = null;
 
 	constructor() {
 		super();
@@ -25,7 +25,9 @@ class Clock extends Component<ClockProps, ClockState> {
 	}
 
 	componentWillUnmount() {
-		clearInterval(this.timer);
+		if (this.timer) {
+			clearInterval(this.timer);
+		}
 	}
 
 	render(props: ClockProps, state: ClockState) {
